@@ -2,8 +2,14 @@
 <div class="container-fluid">
     <div ng-show="ctrl.state === 'ready'" style="color:  #000; padding-top: 20px">
         <div class="title" style="text-align: center; font-weight: bolder"><h1>Elige una actividad</h1></div>
-        <div></div>
-        
+        <div class="row">
+            <div class="col-md-2">
+                <center>
+                    <div><a href="/#!/bizcocho"><img src="images/bizcocho/bizcocho.jpg" style="max-width: 200px" alt=""/></a></div>
+                    <div>Preparando un bizcocho</div>
+                </center>
+            </div>
+        </div>
     </div>
     <div ng-show="ctrl.state === 'waiting'">
         <div class="waiting-box">
