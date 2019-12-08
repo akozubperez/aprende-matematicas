@@ -1,0 +1,60 @@
+html,
+body, 
+.main {
+    height: 100%;
+}
+.title {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.view-panel {
+    padding-top:0px;
+    padding-bottom: 0px;
+    background-image: url('../images/background.jpg');
+
+    background-attachment: fixed;
+    background-position: center;
+    height: 100%;
+}
+/*
+#71D6AB
+#46C08C
+#27AF75
+#06A360
+#017C47
+*/
+
+
+.login-color {
+    color: #187950;
+}
+
+.login-box {
+    background: #27AF75;
+    padding: 35px; 
+    margin-top: 55%;
+}
+
+.login-box-background {
+    background-color: #fff; 
+    padding: 20px 40px;
+    color: #017C47;
+}
+
+.form-background-label {
+    background-color: #46C08C; 
+    border-color: #017C47;
+}
+
+.form-border-input {
+    border-color: #017C47;
+}
+
+.login-button {
+    font-weight: bolder;
+}
+
+.waiting-box {
+    margin-top: 8%; 
+    text-align: center;
+}

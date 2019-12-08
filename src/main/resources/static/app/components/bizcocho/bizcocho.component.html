@@ -1,0 +1,74 @@
+<header.component></header.component>
+<div class="container-fluid" style="margin: 0; padding: 0">
+    <div style="width: 100%; color: white; padding-top: 4px; background-color: #f89941; margin: 0; border-bottom: 1px #ff8100 solid">
+        <div class="title" style="text-align: center; font-weight: bolder"><h1>Preparando un bizcocho ({{ctrl.step}}/{{ctrl.numStep}})</h1></div>
+    </div>
+    <div ng-show="ctrl.state === 'ready'" style="color:  #000; padding-top: 20px">
+        <div style="min-height: 450px">
+            <div ng-show="ctrl.step === 1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <center><img src="images/bizcocho/bizcocho.jpg" style="max-width: 500px" alt=""/></center>
+                    </div>
+                    <div class="col-md-6" style="font-size: 18px; text-align: left">
+                        <p>Queremos preparar un bizcocho. Mama nos ha dicho que necesitaremos 7 ingredientes:</p>
+                        <ul>
+                            <li>Harina</li>
+                            <li>Azúcar</li>
+                            <li>Mantequilla</li>
+                            <li>3 Huevos</li>
+                            <li>1 Yogur</li>
+                            <li>1 Sobre de levadura</li>
+                            <li>1 Limón</li>
+                        </ul>
+                        <p>Sin embargo en casa solo tenemos un limon, por lo que tenemos que ir a comprar.</p>
+                        <p>Pulsa el botón para ir al supermercado.</p>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="ctrl.step === 2">
+                <div class="row">
+                    <div class="col-md-6" style="padding: 10px">
+                        <center><img src="images/bizcocho/huevos.jpg" style="max-width: 500px" alt=""/></center>
+                        <center>Precio: {{ctrl.precios['Huevos']}} coins.</center>
+                    </div>
+                    <div class="col-md-6" style="font-size: 18px; text-align: left">
+                        <p>Estamos en el supermercado y hemos encontrado los huevos. como su precio es de {{ctrl.precios['Huevos']}} coins, el contenido de nuestra cesta de la compra ahora vale {{ctrl.precios['Huevos']}} coins.</p>
+                        <p>¡Anda! en el pasillo de enfrente esta la harina.</p>
+                        <p>Pulsa el botón para ir al pasillo de enfrente.</p>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="ctrl.step === 3">
+                <div class="row">
+                    <div class="col-md-6" style="padding: 10px">
+                        <center><img src="images/bizcocho/harina.jpg" style="max-width: 500px" alt=""/></center>
+                        <center>Precio: {{ctrl.precios['Harina']}} coins.</center>
+                    </div>
+                    <div class="col-md-6" style="font-size: 18px; text-align: left">
+                        <p>Acabamos de poner la harina en la cesta. Si los huevos valen {{ctrl.precios['Huevos']}} coins y la harina {{ctrl.precios['Harina']}} coins.</p>
+                        <p>¿Cual es el precio de la cesta ahora?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="color:#fff">
+            <div class="col-md-5"></div>
+            <div class="col-md-1">
+                <div ng-show="ctrl.step !== 1" ng-click="ctrl.previous()" style="margin-right: 20px; margin-top: 10px; background-color: #f89941; padding: 2px 5px">
+                    <li style="display: inline; text-align: center"><center><i class="fas fa-angle-double-left"></i></center></li>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div ng-show="ctrl.step !== ctrl.numStep" ng-click="ctrl.next()" style="margin-right: 20px; margin-top: 10px; background-color: #f89941; padding: 2px 5px">
+                    <li style="display: inline; text-align: center"><center><i class="fas fa-angle-double-right"></i></center></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="ctrl.state === 'waiting'">
+        <div class="waiting-box">
+            <img src="images/loading.gif" alt="waiting..."/>
+        </div>
+    </div>
+</div>
