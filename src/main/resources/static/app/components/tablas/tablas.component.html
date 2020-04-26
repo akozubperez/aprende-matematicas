@@ -1,0 +1,74 @@
+<header.component></header.component>
+<div class="container-fluid" style="margin: 0; padding: 0">
+    <!--
+    <div style="width: 100%; color: white; padding-top: 4px; background-color: #f89941; margin: 0; border-bottom: 1px #ff8100 solid">
+        <div class="title" style="text-align: center; font-weight: bolder"><h1>Preparando un bizcocho [{{ctrl.step}}/{{ctrl.numSteps}}]</h1></div>
+    </div>-->
+    <title.component data-text="El reto de las tablas"></title.component>
+    <div ng-show="ctrl.state === 'ready'" style="color:  #000; padding-top: 20px">
+        <div style="min-height: 450px">
+            <div ng-show="ctrl.step === 1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <center><img src="images/bizcocho/bizcocho.jpg" style="max-width: 500px" alt=""/></center>
+                    </div>
+                    <div class="col-md-6" style="font-size: 18px; text-align: left">
+                        <p>Queremos preparar un bizcocho. Mama nos ha dicho que necesitaremos 7 ingredientes:</p>
+                        <ul>
+                            <li>Harina</li>
+                            <li>Azúcar</li>
+                            <li>Mantequilla</li>
+                            <li>3 Huevos</li>
+                            <li>1 Yogur</li>
+                            <li>1 Sobre de levadura</li>
+                            <li>Ralladura de limón</li>
+                        </ul>
+                        <p>Sin embargo en casa solo tenemos un limon, por lo que tenemos que ir a comprar.</p>
+                        <p>Pulsa el botón para ir al supermercado.</p>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="ctrl.step === 2">
+                <div class="row">
+                    <div class="col-md-6" style="padding: 10px">
+                        <center><img src="images/bizcocho/huevos.jpg" style="max-width: 500px" alt=""/></center>
+                        <center>Precio: {{ctrl.precios['Huevos']}} coins.</center>
+                    </div>
+                    <div class="col-md-6" style="font-size: 18px; text-align: left">
+                        <p>Estamos en el supermercado y hemos encontrado los huevos, como su precio es de {{ctrl.precios['Huevos']}} coins, el contenido de nuestra cesta de la compra ahora vale {{ctrl.precios['Huevos']}} coins.</p>
+                        <p>¡Anda! en el pasillo de enfrente está la harina.</p>
+                        <p>Pulsa el botón para ir al pasillo de enfrente.</p>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="ctrl.step === 3">
+                <div class="row">
+                    <div class="col-md-6" style="padding: 10px">
+                        <center><img src="images/bizcocho/harina.jpg" style="max-width: 500px" alt=""/></center>
+                        <center>Precio: {{ctrl.precios['Harina']}} coins.</center>
+                    </div>
+                    <div class="col-md-6" style="font-size: 18px; text-align: left">
+                        <p>Acabamos de poner la harina en la cesta. </p>
+                        <div ng-show="!ctrl.stepEnabled[ctrl.step]">
+                            <p>Si los huevos valen {{ctrl.precios['Huevos']}} coins y la harina {{ctrl.precios['Harina']}} coins.</p>
+                            <p>¿Cuál es el precio del contenido de la cesta en este momento?</p>
+                            <div style="padding-left: 20px"><input type="number" min="0" max="100" style="width: 50px; text-align: right" ng-model="ctrl.reponse3"/>&nbsp;<button class="btn btn-warning" style="color: #fff; font-weight: bold" ng-click="ctrl.check(ctrl.reponse3)">Comprobar</button></div>
+                        </div>
+                        <div ng-show="ctrl.stepEnabled[ctrl.step]">
+                            <h4 style="color: green">¡Genial!</h4>
+                            <p>El precio conjunto es {{ctrl.responses[ctrl.step]}} coins.</p>
+                        </div>
+                        <div ng-show="ctrl.responseError[ctrl.step]" style="padding-top: 20px">
+                            <h4 style="color: red">¡Oh¡ no es correco, intentalo de nuevo</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="ctrl.step === 4">
+                <analogic.clock.component data-size="300" data-color="purple" data-time="ctrl.time"></analogic.clock.component>
+            </div>
+        </div>
+        <controllers.component data-step="ctrl.step" data-num-steps="ctrl.numSteps" data-step-enabled="ctrl.stepEnabled"></controllers.component>
+    </div>
+    <waiting.component ng-show="ctrl.state === 'waiting'"></waiting.component>
+</div>

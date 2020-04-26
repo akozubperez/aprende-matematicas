@@ -3,7 +3,7 @@ package com.github.akozubperez.math.arch.security;
 import java.util.Arrays;
 import java.util.List;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 public abstract class WebSecurityConfigurationBase extends WebSecurityConfigurerAdapter {
 
     public static final String XSRF_TOKEN = "XSRF-TOKEN";

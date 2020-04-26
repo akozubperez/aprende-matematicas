@@ -1,0 +1,13 @@
+<div class="row" style="color:#fff">
+    <div class="col-md-5"></div>
+    <div class="col-md-1">
+        <div ng-show="ctrl.step !== 1" ng-click="ctrl.previous()" style="margin-right: 20px; margin-top: 10px; background-color: #f89941; padding: 2px 5px">
+            <center><i class="fas fa-angle-double-left"></i></center>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div ng-show="ctrl.step !== ctrl.numSteps && ctrl.stepEnabled[ctrl.step]" ng-click="ctrl.next()" style="margin-right: 20px; margin-top: 10px; background-color: #f89941; padding: 2px 5px">
+            <center><i class="fas fa-angle-double-right"></i></center>
+        </div>
+    </div>
+</div>

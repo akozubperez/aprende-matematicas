@@ -10,9 +10,9 @@
             var ctrl = this;
             ctrl.state = 'waiting';
             ctrl.step = 1;
-            ctrl.numStep = 10;
+            ctrl.numSteps = 10;
             ctrl.stepEnabled = [];
-            var ingredientes = ['Huevos', 'Harina', 'Yogur', 'Azúcar', 'Levadura', 'Mantequilla', 'Limón'];
+            var ingredientes = ['Huevos', 'Harina', 'Mantequilla', 'Yogur', 'Azúcar', 'Levadura', 'Limón'];
             ctrl.precios = {};
             ctrl.responseError = {};
 
@@ -26,28 +26,30 @@
                     total += ctrl.precios[e];
                     ctrl.responses[i + 2] = total;
                 });
+                ctrl.responses[ctrl.responses.length] = 100 - ctrl.responses[ctrl.responses.length - 1];
                 ctrl.responses[2] = undefined;
-                for (var i = 1; i <= ctrl.numStep; i++) {
+
+                var hora = 4 + Math.round(Math.random() * 4);
+                var minutos = 15 + Math.round(Math.random() * 3) * 15;
+                ctrl.time = new Date(1970, 1, 1, hora, minutos);
+                ctrl.responses[ctrl.responses.length] = hora * 60 + minutos + 45;
+                
+                for (var i = 1; i <= ctrl.numSteps; i++) {
                     ctrl.stepEnabled[i] = ctrl.responses[i] === undefined;
                 }
                 ctrl.state = 'ready';
             };
 
             ctrl.check = function (response) {
+                if (ctrl.step === 9){
+                    response = response.getHours() * 60 + response.getMinutes();
+                } 
                 if (ctrl.responses[ctrl.step] === response) {
                     ctrl.stepEnabled[ctrl.step] = true;
                     ctrl.responseError[ctrl.step] = false;
                 } else {
                     ctrl.responseError[ctrl.step] = true;
                 }
-            };
-            
-            ctrl.next = function () {
-                ctrl.step++;
-            };
-
-            ctrl.previous = function () {
-                ctrl.step--;
             };
         }});
 })();

@@ -6,7 +6,8 @@
     app.constant('STATES', {
         LOGIN: 'login',
         HOME: 'home',
-        BIZCOCHO: 'bizcocho'
+        BIZCOCHO: 'bizcocho',
+        TABLAS: 'tablas'
     });
     
     app.config(function ($stateProvider, $urlRouterProvider, STATES) {
@@ -14,6 +15,7 @@
         $stateProvider
                 .state(STATES.HOME, {url: '/home', component: 'home.component'})
                 .state(STATES.BIZCOCHO, {url: '/bizcocho', component: 'bizcocho.component'})
+                .state(STATES.TABLAS, {url: '/tablas', component: 'tablas.component'})
                 .state(STATES.LOGIN, {url: '/login', component: 'login.component'});
     });
 
